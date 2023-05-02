@@ -13,10 +13,11 @@ import com.example.composenarrator.data.sampleText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.BreakIterator
 import java.util.*
+import javax.inject.Inject
 
 
 @HiltViewModel
-class NarratorViewModel(private val app: Application): AndroidViewModel(app) {
+class NarratorViewModel @Inject constructor(private val app: Application): AndroidViewModel(app) {
 
     var state by mutableStateOf(NarratorScreenState(sampleText))
     private set

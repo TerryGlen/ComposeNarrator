@@ -9,10 +9,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.composenarrator.data.sampleText
 import com.example.composenarrator.ui.components.CustomClickableText
@@ -21,12 +23,9 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun NarratorScreen(modifier: Modifier = Modifier) {
-    val viewModel: NarratorViewModel = viewModel()
+fun NarratorScreen(modifier: Modifier = Modifier, viewModel: NarratorViewModel = hiltViewModel()) {
     val state = viewModel.state
-
     NarratorScreen(state, modifier, viewModel::onEvent )
-
 }
 
 @Composable
@@ -58,7 +57,8 @@ fun NarratorScreen(
                     .padding(horizontal = 18.dp)
                     .padding(top = 16.dp)
                     .weight(.9f)
-                    .verticalScroll(scrollState),
+                    .verticalScroll(scrollState)
+                    .testTag("narration_text"),
                 onClick = { onTtsEvent(NarratorEvent.Restart(it)) },
                 style = MaterialTheme.typography.bodyLarge,
                 onTextLayout = {

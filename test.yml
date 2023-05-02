@@ -1,0 +1,9 @@
+android-pixel-7-pro:
+  type: instrumentation
+  app: app-debug.apk
+  test: app-debug-test.apk
+  device:
+    - model: cheetah
+      version: 33
+      locale: 'en'
+      orientation: portrait
