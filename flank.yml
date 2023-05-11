@@ -67,12 +67,12 @@ gcloud:
   ## The path to the application binary file.
   ## The path may be in the local filesystem or in Google Cloud Storage using gs:// notation.
   ## Android App Bundles are specified as .aab, all other files are assumed to be APKs.
-  app: ../ComposeNarrator/app/build/outputs/apk/debug/app-debug.apk
+  app: app/build/outputs/apk/debug/app-debug.apk
 
   ### Android Binary File Path
   ## The path to the binary file containing instrumentation tests.
   ## The given path may be in the local filesystem or in Google Cloud Storage using a URL beginning with gs://.
-  test: ../ComposeNarrator/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+  test: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
 
   ### Additional APK's
   ## A list of up to 100 additional APKs to install, in addition to those being directly tested.
