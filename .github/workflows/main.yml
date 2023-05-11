@@ -9,6 +9,14 @@ jobs:
     name: Run Firebase UI Tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 11
+          cache: 'gradle'
+      - name: Build Test APK
+        run: ./gradlew assembleDebug
       - uses: Flank/flank@master
         with: 
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
