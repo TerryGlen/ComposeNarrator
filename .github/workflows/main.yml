@@ -20,6 +20,6 @@ jobs:
         run: ./gradlew assembleDebug
       - uses: Flank/flank@master
         with: 
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          service_account: ${{ secrets.GOOGLE_CREDENTIALS }}
           platform: android
           flank_configuration_file: ..\flank.xml
