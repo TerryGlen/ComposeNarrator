@@ -1,0 +1,16 @@
+name: Firebase UI Tests
+on:
+  pull_request:
+    branches:
+      - develop
+      
+jobs:
+  setup-flank:
+    name: Run Firebase UI Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Flank/flank@master
+        with: 
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          platform: android
+          flank_configuration_file: ..\flank.xml
