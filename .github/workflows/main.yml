@@ -17,7 +17,7 @@ jobs:
           java-version: 11
           cache: 'gradle'
       - name: Build Test APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug && ./gradlew assembleDebugAndroidTest
       - uses: Flank/flank@master
         with: 
           service_account: ${{ secrets.GOOGLE_CREDENTIALS }}
