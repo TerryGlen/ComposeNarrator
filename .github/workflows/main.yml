@@ -2,6 +2,7 @@ name: Firebase UI Tests
 on:
   pull_request:
     branches:
+      - main
       - develop
       
 jobs:
@@ -16,9 +17,9 @@ jobs:
           java-version: 11
           cache: 'gradle'
       - name: Build Test APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug && ./gradlew assembleDebugAndroidTest
       - uses: Flank/flank@master
         with: 
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          service_account: ${{ secrets.GOOGLE_CREDENTIALS }}
           platform: android
-          flank_configuration_file: ..\flank.xml
+          flank_configuration_file: flank.yml
