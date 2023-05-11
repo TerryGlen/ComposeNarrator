@@ -22,4 +22,4 @@ jobs:
         with: 
           service_account: ${{ secrets.GOOGLE_CREDENTIALS }}
           platform: android
-          flank_configuration_file: ..\flank.xml
+          flank_configuration_file: flank.xml
